@@ -5,17 +5,24 @@
 
 def automata(cadena):
     alfabeto = ['1','2','3','4','5','6','7','8','9','0','+','*']
-    # recorrer cada caracter de la cadena
-    for c in cadena:
-        if c in alfabeto:
-           pass 
-        else:
-          return False 
-    return True
+    # checar que no sea nulo
+    if cadena: 
+        # recorrer cada caracter de la cadena
+        for c in cadena:
+            if c in alfabeto:
+               pass 
+            else:
+              return False 
+        return True
+    else: 
+        return False
 
 
 print(automata('01234+'))
 print(automata('01234w'))
+print(automata('++++'))
+print(automata('1*2*3++401*'))
+print(automata(''))
 
 
 
