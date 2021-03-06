@@ -1,28 +1,59 @@
-# Instrucciones:  Realizar un un autómata finito que sea capas de reconocer un lenguaje que esta compuesto por números enteros sin signo, la suma, incremento y el producto, la suma esta representado por el signo +, el incremento por ++ y el producto *.
-
-# El autómata deberá de estar programado en Python, el input del programa será una palabra creada por el language y el output será True en caso de que sea una palabra valida dentro de mi lenguaje o False en caso de que no sea una palabra validad.
-
+enteros = ['1','2','3','4','5','6','7','8','9','0']
+datos = [] 
 
 def automata(cadena):
-    alfabeto = ['1','2','3','4','5','6','7','8','9','0','+','*']
-    # checar que no sea nulo
     if cadena: 
-        # recorrer cada caracter de la cadena
+        index = 0
         for c in cadena:
-            if c in alfabeto:
-               pass 
-            else:
-              return False 
-        return True
+            if c in enteros:
+                datos.append({'caracter':c,'valor':'entero'})
+                edo_1(cadena,index+1)
+                break
+            elif c == '+':
+                datos.append({'caracter':c,'valor':'suma'})
+                edo_2(cadena,index+1)
+                break
+            elif c =='*':
+                datos.append({'caracter':c,'valor':'producto'})
+                edo_2(cadena,index+1)
+                break
+            else: 
+                return False
+        return print_table(datos)
     else: 
         return False
 
+def edo_1(cadena,index):
+    if index < len(cadena):
+        caracter = cadena[index]
+        if caracter in enteros:
+            datos.append({'caracter':caracter,'valor':'entero'})
+            edo_1(cadena,index+1)
+        elif caracter == '+':
+                datos.append({'caracter':caracter,'valor':'suma'})
+                edo_2(cadena,index+1)
+        elif caracter =='*':
+            datos.append({'caracter':caracter,'valor':'producto'})
+            edo_2(cadena,index+1)
+        else: 
+            return False
+    else:
+        return
 
-print(automata('01234+'))
-print(automata('01234w'))
-print(automata('++++'))
-print(automata('1*2*3++401*'))
-print(automata(''))
+def edo_2(cadena,index):
+    pass
+
+def edo_3(cadena,index):
+    pass
+
+def edo_4(cadena,index):
+    pass
+
+def print_table(datos):
+    print('***************************************\ncaracter | representa\n***************************************')
+    for dato in datos:
+        print(dato['caracter'],'|',dato['valor'])
+        print('------------------------------------------------------------')
 
 
-
+print(automata('123'))
