@@ -7,16 +7,22 @@ def automata(cadena):
         for c in cadena:
             if c in enteros:
                 datos.append({'caracter':c,'valor':'entero'})
-                edo_1(cadena,index+1)
-                break
+                if(edo_1(cadena,index+1) == False):
+                    return False
+                else:
+                    break
             elif c == '+':
                 datos.append({'caracter':c,'valor':'suma'})
-                edo_2(cadena,index+1)
-                break
+                if(edo_2(cadena,index+1) == False):
+                    return False
+                else:
+                    break
             elif c =='*':
                 datos.append({'caracter':c,'valor':'producto'})
-                edo_2(cadena,index+1)
-                break
+                if(edo_2(cadena,index+1)==False):
+                    return False
+                else:
+                    break
             else: 
                 return False
         return print_table(datos)
@@ -28,26 +34,82 @@ def edo_1(cadena,index):
         caracter = cadena[index]
         if caracter in enteros:
             datos.append({'caracter':caracter,'valor':'entero'})
-            edo_1(cadena,index+1)
+            if(edo_1(cadena,index+1)==False):
+                return False
         elif caracter == '+':
                 datos.append({'caracter':caracter,'valor':'suma'})
-                edo_2(cadena,index+1)
+                if(edo_2(cadena,index+1)==False):
+                    return False
         elif caracter =='*':
             datos.append({'caracter':caracter,'valor':'producto'})
-            edo_2(cadena,index+1)
+            if(edo_2(cadena,index+1)==False):
+                return False
         else: 
             return False
     else:
-        return
+        return True
 
 def edo_2(cadena,index):
-    pass
+    if index < len(cadena):
+        caracter = cadena[index]
+        if caracter in enteros:
+            datos.append({'caracter':caracter,'valor':'entero'})
+            if(edo_1(cadena,index+1)==False):
+                return False
+        elif caracter == '+':
+                datos.append({'caracter':caracter,'valor':'suma'})
+                if(edo_4(cadena,index+1)==False):
+                    return False
+        elif caracter =='*':
+            datos.append({'caracter':caracter,'valor':'producto'})
+            if(edo_2(cadena,index+1)==False):
+                return False
+        else: 
+            return False
+    else:
+        return True
+    
 
 def edo_3(cadena,index):
-    pass
+    if index < len(cadena):
+        caracter = cadena[index]
+        if caracter in enteros:
+            datos.append({'caracter':caracter,'valor':'entero'})
+            if(edo_1(cadena,index+1)==False):
+                return False
+        elif caracter == '+':
+                datos.append({'caracter':caracter,'valor':'suma'})
+                if(edo_2(cadena,index+1)==False):
+                    return False
+        elif caracter =='*':
+            datos.append({'caracter':caracter,'valor':'producto'})
+            if(edo_2(cadena,index+1)==False):
+                return False
+        else: 
+            return False
+    else:
+        return True
 
 def edo_4(cadena,index):
-    pass
+    if index < len(cadena):
+        caracter = cadena[index]
+        if caracter in enteros:
+            datos.append({'caracter':caracter,'valor':'entero'})
+            if(edo_1(cadena,index+1)==False):
+                return False
+        elif caracter == '+':
+                datos.append({'caracter':caracter,'valor':'incremento'})
+                if(edo_2(cadena,index+1)==False):
+                    return False
+        elif caracter =='*':
+            datos.append({'caracter':caracter,'valor':'producto'})
+            if(edo_2(cadena,index+1)==False):
+                return False
+        else: 
+            return False
+    else:
+        return True
+    
 
 def print_table(datos):
     print('***************************************\ncaracter | representa\n***************************************')
@@ -56,4 +118,4 @@ def print_table(datos):
         print('------------------------------------------------------------')
 
 
-print(automata('123'))
+print(automata('123++++***123'))
