@@ -1,25 +1,22 @@
 enteros = ['1','2','3','4','5','6','7','8','9','0']
 datos = [] 
 
-def automata(cadena):
+def edo_0(cadena):
     if cadena: 
         index = 0
         for c in cadena:
             if c in enteros:
-                datos.append({'caracter':c,'valor':'entero'})
-                if(edo_1(cadena,index+1) == False):
+                if(edo_1(cadena,index) == False):
                     return False
                 else:
                     break
             elif c == '+':
-                datos.append({'caracter':c,'valor':'suma'})
-                if(edo_2(cadena,index+1) == False):
+                if(edo_2(cadena,index) == False):
                     return False
                 else:
                     break
             elif c =='*':
-                datos.append({'caracter':c,'valor':'producto'})
-                if(edo_2(cadena,index+1)==False):
+                if(edo_2(cadena,index)==False):
                     return False
                 else:
                     break
@@ -118,4 +115,4 @@ def print_table(datos):
         print('------------------------------------------------------------')
 
 
-print(automata('123++++***123'))
+edo_0('++1*')
