@@ -44,11 +44,14 @@ def automata(palabra):
                             numeros.append(letra)
                             print(''.join(numeros),'| numero')
                             print('---------------------------------------')
+                            # despues de imprimir vaciar la lista
+                            numeros.clear()
                     else:
                         # si la cadena termina con un numero
                         numeros.append(letra)
                         print(''.join(numeros),'| numero')
                         print('---------------------------------------')
+                        numeros.clear()
                 elif letra == '*':
                     print('* | producto')
                     print('---------------------------------------')
@@ -78,10 +81,12 @@ def automata(palabra):
                             numeros.append(letra)
                             print(''.join(numeros),'| numero')
                             print('---------------------------------------')
+                            numeros.clear()
                     else:
                         numeros.append(letra)
                         print(''.join(numeros),'| numero')
                         print('---------------------------------------')
+                        numeros.clear()
                 elif letra == '*':
                     print('* | producto')
                     print('---------------------------------------')
@@ -111,10 +116,12 @@ def automata(palabra):
                             numeros.append(letra)
                             print(''.join(numeros),'| numero')
                             print('---------------------------------------')
+                            numeros.clear()
                     else:
                         numeros.append(letra)
                         print(''.join(numeros),'| numero')
                         print('---------------------------------------')
+                        numeros.clear()
                 elif letra == '*':
                     print('* | producto')
                     print('---------------------------------------')
