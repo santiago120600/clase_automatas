@@ -17,9 +17,14 @@ def automata(palabra):
         for letra in palabra:
             if(estado==1):
                 if letra == '+':
-                    if(not palabra[indice+1]=='+'):     
-                        print('+ | suma')
-                        print('---------------------------------------')
+                    if(indice+1 <= len(palabra)-1):
+                        if(not palabra[indice+1]=='+'):     
+                            print('+ | suma')
+                            print('---------------------------------------')
+                    else:
+                            print('+ | suma')
+                            print('---------------------------------------')
+
                     estado = 2
                 elif letra in enteros:
                     print(letra,'| numero')
@@ -34,9 +39,14 @@ def automata(palabra):
                     return False
             elif(estado==2):
                 if letra == '+':
-                    if(not palabra[indice+1]=='+'):     
-                        print('+ | suma')
-                        print('---------------------------------------')
+                    if(indice+1 <= len(palabra)-1):
+                        if(not palabra[indice+1]=='+'):     
+                            print('+ | suma')
+                            print('---------------------------------------')
+                    else:
+                            print('+ | suma')
+                            print('---------------------------------------')
+
                     estado = 4
                 elif letra in enteros:
                     print(letra,'| numero')
@@ -51,7 +61,11 @@ def automata(palabra):
                     return False
             elif(estado==3):
                 if letra == '+':
-                    if(not palabra[indice+1]=='+'):     
+                    if(indice+1 <= len(palabra)-1):
+                        if(not palabra[indice+1]=='+'):     
+                            print('+ | suma')
+                            print('---------------------------------------')
+                    else:
                         print('+ | suma')
                         print('---------------------------------------')
                     estado = 2
@@ -92,4 +106,4 @@ def automata(palabra):
         return False
 
 
-automata('+++0')
+automata('+++00')
