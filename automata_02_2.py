@@ -70,10 +70,18 @@ def automata(palabra):
                         print('---------------------------------------')
                         estado = 4
                 elif letra in enteros:
-                    print(letra,'| numero')
-                    print('---------------------------------------')
-                    estado = 1
-                    numeros.append(letra)
+                    if(indice+1 < len(palabra)):
+                        if(palabra[indice+1] in enteros):
+                            estado = 1
+                            numeros.append(letra)
+                        else:
+                            numeros.append(letra)
+                            print(''.join(numeros),'| numero')
+                            print('---------------------------------------')
+                    else:
+                        numeros.append(letra)
+                        print(''.join(numeros),'| numero')
+                        print('---------------------------------------')
                 elif letra == '*':
                     print('* | producto')
                     print('---------------------------------------')
@@ -95,9 +103,18 @@ def automata(palabra):
                         print('---------------------------------------')
                         estado = 2
                 elif letra in enteros:
-                    print(letra,'| numero')
-                    print('---------------------------------------')
-                    estado = 1
+                    if(indice+1 < len(palabra)):
+                        if(palabra[indice+1] in enteros):
+                            estado = 1
+                            numeros.append(letra)
+                        else:
+                            numeros.append(letra)
+                            print(''.join(numeros),'| numero')
+                            print('---------------------------------------')
+                    else:
+                        numeros.append(letra)
+                        print(''.join(numeros),'| numero')
+                        print('---------------------------------------')
                 elif letra == '*':
                     print('* | producto')
                     print('---------------------------------------')
@@ -134,7 +151,5 @@ def automata(palabra):
 
     
 
-# automata('++00')#esto da un resultado incorrecto
-# automata('*00')#esto da un resultado incorrecto
-automata('00')
+automata('12+12++19*1')
 # automata(input())
