@@ -22,11 +22,13 @@ def automata(palabra):
                         if(not palabra[indice+1]=='+'):     
                             print('+ | suma')
                             print('---------------------------------------')
+                            estado = 2
+                        else:
+                            estado = 4
                     else:
                         print('+ | suma')
                         print('---------------------------------------')
-
-                    estado = 2
+                        estado = 2
                 elif letra in enteros:
                     print(letra,'| numero')
                     print('---------------------------------------')
@@ -44,10 +46,13 @@ def automata(palabra):
                         if(not palabra[indice+1]=='+'):     
                             print('+ | suma')
                             print('---------------------------------------')
+                            estado = 2
+                        else:
+                            estado = 4
                     else:
-                            print('+ | suma')
-                            print('---------------------------------------')
-                    estado = 4
+                        print('+ | suma')
+                        print('---------------------------------------')
+                        estado = 4
                 elif letra in enteros:
                     print(letra,'| numero')
                     print('---------------------------------------')
